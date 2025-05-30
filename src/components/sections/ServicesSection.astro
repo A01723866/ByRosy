@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import material1Image from '../../../public/images/Material1.jpeg';
+import material2Image from '../../../public/images/Material2.jpeg';
+import material3Image from '../../../public/images/Material3.jpeg';
+import material4Image from '../../../public/images/Material4.jpeg';
+
+// Define los servicios en el frontmatter de Astro
+const services = [
+  {
+    icon: "ruler",
+    title: "Diseño a Medida",
+    description: "Diseños de cocina personalizados adaptados a tu estilo de vida, espacio y preferencias estéticas. Cada detalle meticulosamente planificado."
+  },
+  {
+    icon: "palette",
+    title: "Selección de Materiales",
+    description: "Selección curada de materiales premium que incluyen piedra natural, madera maciza y accesorios de diseñador de fabricantes reconocidos."
+  },
+  {
+    icon: "wrench",
+    title: "Instalación Experta",
+    description: "Instalación profesional por maestros artesanos que garantiza un ajuste, acabado y funcionalidad perfectos que resisten la prueba del tiempo."
+  },
+  {
+    icon: "trophy",
+    title: "Gestión de Proyectos",
+    description: "Supervisión integral del proyecto desde el concepto hasta la finalización, garantizando entregas puntuales y estándares de calidad excepcionales."
+  }
+];
+
+// Función para obtener el SVG del icono
+const getIconSvg = (iconName) => {
+  switch (iconName) {
+    case 'ruler':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/></svg>`;
+    case 'palette':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`;
+    case 'wrench':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`;
+    case 'trophy':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`;
+    default:
+      return '';
+  }
+};
+---
+
+<section class="relative py-62 bg-white overflow-hidden -mt-1" id="services-section">
+  <!-- Fotos de materiales con efecto parallax -->
+  <div class="absolute inset-0 z-15">
+    <!-- Foto 1 - Material1.jpeg (superior izquierda) -->
+    <div class="absolute top-12 left-8 w-60 h-76 opacity-30 parallax-img" data-speed="0.3">
+      <Image 
+        src={material1Image} 
+        alt="Material 1" 
+        width={3300}
+        height={5225}
+        class="w-full h-full object-cover rounded-lg"
+      />
+    </div>
+    
+    <!-- Foto 2 - Material2.jpeg (superior derecha) -->
+    <div class="absolute top-16 right-45 w-54 h-42 opacity-30 parallax-img" data-speed="0.5">
+      <Image 
+        src={material2Image} 
+        alt="Material 2" 
+        width={275}
+        height={200}
+        class="w-full h-full object-cover rounded-lg"
+      />
+    </div>
+    
+    <!-- Foto 3 - Material3.jpeg (inferior izquierda) -->
+    <div class="absolute bottom-10 left-60 w-70 h-40 opacity-30 parallax-img" data-speed="0.4">
+      <Image 
+        src={material3Image} 
+        alt="Material 3" 
+        width={250}
+        height={175}
+        class="w-full h-full object-cover rounded-lg"
+      />
+    </div>
+    
+    <!-- Foto 4 - Material4.jpeg (inferior derecha) -->
+    <div class="absolute bottom-20 right-10 w-46 h-64 opacity-30 parallax-img" data-speed="0.6">
+      <Image 
+        src={material4Image} 
+        alt="Material 4" 
+        width={290}
+        height={210}
+        class="w-full h-full object-cover rounded-lg"
+      />
+    </div>
+  </div>
+
+  <!-- Content over white background -->
+  <div class="relative z-20 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 
+        class="text-4xl md:text-5xl font-bold text-deep-charcoal mb-6" 
+        style="font-family: var(--font-family-tempting);"
+      >
+        Vive tu cocina
+      </h2>
+      <p 
+        class="text-lg text-warm-gray max-w-2xl mx-auto" 
+        style="font-family: var(--font-family-inter);"
+      >
+        Desde el concepto inicial hasta la instalación final, brindamos servicios 
+        integrales de diseño de cocina que superan las expectativas en cada etapa.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service, index) => (
+        <div class="service-window group relative">
+          <!-- Tarjeta de servicio limpia sin efecto ventana -->
+          <div class="service-card relative p-8 rounded-lg overflow-hidden bg-soft-cream hover:shadow-xl transition-all duration-300">
+            <!-- Contenido de la tarjeta -->
+            <div class="relative z-10">
+              <div class="mb-6 text-gold-accent group-hover:scale-110 transition-all duration-300" set:html={getIconSvg(service.icon)} />
+              <h3 
+                class="text-xl font-semibold text-deep-charcoal mb-4" 
+                style="font-family: var(--font-family-playfair);"
+              >
+                {service.title}
+              </h3>
+              <p 
+                class="text-warm-gray leading-relaxed text-sm" 
+                style="font-family: var(--font-family-inter);"
+              >
+                {service.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-window {
+    position: relative;
+  }
+  
+  .service-card {
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .parallax-img {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const servicesSection = document.getElementById('services-section');
+    const parallaxImages = document.querySelectorAll('.parallax-img');
+    
+    const handleScroll = () => {
+      if (!servicesSection) return;
+      
+      const rect = servicesSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calcular si la sección está visible
+      if (rect.bottom >= 0 && rect.top <= windowHeight) {
+        // Calcular el porcentaje de scroll dentro de la sección
+        const scrollProgress = Math.max(0, Math.min(1, 
+          (windowHeight - rect.top) / (windowHeight + rect.height)
+        ));
+        
+        // Aplicar el efecto parallax a cada imagen
+        parallaxImages.forEach((img) => {
+          const speed = parseFloat(img.getAttribute('data-speed') || '0.3');
+          const offset = scrollProgress * 20 * speed; // Movimiento sutil
+          img.style.transform = `translateY(${offset}px)`;
+        });
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Ejecutar una vez al cargar
+  });
+</script> 
