@@ -10,7 +10,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), react()],
-
+  server: {
+    port: 3000,
+    host: true  // permite acceso desde la red local
+  },
   vite: {
     plugins: [tailwindcss()],
   },

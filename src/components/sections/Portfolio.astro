@@ -61,10 +61,11 @@ const projects = [
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
       {projects.map((project, index) => (
         <div 
-          class="portfolio-card group cursor-pointer overflow-hidden rounded-xl shadow-xl hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+          class={`portfolio-card group cursor-pointer overflow-hidden rounded-xl shadow-xl hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${index >= 3 ? 'hidden-project hidden md:block' : ''}`}
+          data-index={index}
         >
           <div class="relative overflow-hidden aspect-[4/5]">
             <Image 
@@ -94,6 +95,30 @@ const projects = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Indicator that there are more projects (mobile only) -->
+    <div class="md:hidden mb-6 text-center">
+      <div class="flex justify-center items-center space-x-1">
+        <span class="w-2 h-2 bg-warm-gray rounded-full"></span>
+        <span class="w-2 h-2 bg-warm-gray rounded-full"></span>
+        <span class="w-2 h-2 bg-warm-gray rounded-full"></span>
+      </div>
+    </div>
+
+    <div class="text-center md:hidden" id="show-more-container">
+      <button 
+        id="show-more-btn"
+        class="inline-block px-10 py-4 bg-deep-charcoal text-white rounded-lg hover:bg-warm-gray transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+        style="font-family: var(--font-family-playfair);"
+      >
+        <span class="flex items-center justify-center">
+          Ver más proyectos
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L10 14.586l5.293-5.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </section>
@@ -130,4 +155,50 @@ const projects = [
     text-rendering: optimizeLegibility;
     letter-spacing: -0.01em;
   }
-</style> 
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const hiddenProjects = document.querySelectorAll('.hidden-project');
+    const showMoreContainer = document.getElementById('show-more-container');
+    
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', () => {
+        // Show all hidden projects with a staggered animation
+        hiddenProjects.forEach((project, index) => {
+          setTimeout(() => {
+            project.classList.remove('hidden');
+            project.classList.add('animate-fadeIn');
+          }, index * 150); // Stagger the appearance
+        });
+        
+        // Scroll to the first hidden project (with a slight delay to ensure it's visible)
+        if (hiddenProjects.length > 0) {
+          setTimeout(() => {
+            const firstHiddenProject = hiddenProjects[0];
+            const headerOffset = 100; // Adjust based on your header height
+            const elementPosition = firstHiddenProject.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }, 200);
+        }
+        
+        // Change button text to indicate loading
+        showMoreBtn.textContent = 'Cargando...';
+        showMoreBtn.disabled = true;
+        
+        // Hide the button container after showing all projects
+        setTimeout(() => {
+          if (showMoreContainer) {
+            showMoreContainer.style.display = 'none';
+          }
+        }, hiddenProjects.length * 150 + 500);
+      });
+    }
+  });
+</script> 
