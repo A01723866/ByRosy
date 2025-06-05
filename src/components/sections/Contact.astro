@@ -1,0 +1,500 @@
+---
+// Contact Section - Astro Native
+---
+
+<section id="contact" class="relative py-24 bg-soft-cream z-10">
+  <div class="container mx-auto px-8">
+    <!-- Header -->
+    <div class="text-center mb-24">
+      <h2 
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-charcoal mb-8"
+        style="font-family: var(--font-family-tempting);"
+      >
+        Contacto
+      </h2>
+      <p 
+        class="text-xl text-warm-gray max-w-3xl mx-auto leading-relaxed"
+        style="font-family: var(--font-family-playfair);"
+      >
+        ¿Listo para transformar tu cocina? Contáctanos hoy para una entrevista personalizada 
+        y descubre cómo podemos hacer realidad tu visión.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-20">
+      <!-- Contact Info & Social Media -->
+      <div>
+        <h3 
+          class="text-3xl font-semibold text-deep-charcoal mb-12"
+          style="font-family: var(--font-family-playfair);"
+        >
+          Ponte en Contacto
+        </h3>
+        
+        <!-- Contact Methods -->
+        <div class="space-y-8 mb-12">
+          <!-- WhatsApp -->
+          <div class="flex items-start space-x-6">
+            <div class="bg-[#25D366]/20 p-4 rounded-xl">
+              <svg class="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"/>
+              </svg>
+            </div>
+            <div>
+              <h4 
+                class="text-lg font-medium text-deep-charcoal mb-2"
+                style="font-family: var(--font-family-inter);"
+              >
+                WhatsApp
+              </h4>
+              <a 
+                href="https://wa.me/8188593299?text=Hola%20Rosy,%20me%20interesa%20una%20cocina%20contigo!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-warm-gray hover:text-[#25D366] transition-colors duration-300"
+                style="font-family: var(--font-family-inter);"
+              >
+                Envía un mensaje directo
+              </a>
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div class="flex items-start space-x-6">
+            <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-4 rounded-xl">
+              <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 
+                class="text-lg font-medium text-deep-charcoal mb-2"
+                style="font-family: var(--font-family-inter);"
+              >
+                Instagram
+              </h4>
+              <a 
+                href="https://www.instagram.com/rosy.santisteban?igsh=anExOHdwYTF6NjEw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-warm-gray hover:text-pink-600 transition-colors duration-300"
+                style="font-family: var(--font-family-inter);"
+              >
+                @rosy.santisteban
+              </a>
+            </div>
+          </div>
+
+          <!-- Facebook -->
+          <div class="flex items-start space-x-6">
+            <div class="bg-[#1877F2]/20 p-4 rounded-xl">
+              <svg class="w-6 h-6 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 
+                class="text-lg font-medium text-deep-charcoal mb-2"
+                style="font-family: var(--font-family-inter);"
+              >
+                Facebook
+              </h4>
+              <a 
+                href="https://www.facebook.com/share/16m8mEp8U2/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-warm-gray hover:text-[#1877F2] transition-colors duration-300"
+                style="font-family: var(--font-family-inter);"
+              >
+                Rosy Angelica Trevino
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <div class="bg-off-white p-8 rounded-xl">
+          <h4 
+            class="text-2xl font-semibold text-deep-charcoal mb-6"
+            style="font-family: var(--font-family-playfair);"
+          >
+            ¿Por qué elegir By Rosy?
+          </h4>
+          <ul 
+            class="space-y-3 text-warm-gray"
+            style="font-family: var(--font-family-inter);"
+          >
+            <li class="flex items-center">
+              <span class="text-gold-accent mr-3">✓</span>
+              Conexión y Entendimiento
+            </li>
+            <li class="flex items-center">
+              <span class="text-gold-accent mr-3">✓</span>
+              Diseño a Medida
+            </li>
+            <li class="flex items-center">
+              <span class="text-gold-accent mr-3">✓</span>
+              Selección de Materiales
+            </li>
+            <li class="flex items-center">
+              <span class="text-gold-accent mr-3">✓</span>
+              Estética que trasciende
+            </li>
+            <li class="flex items-center">
+              <span class="text-gold-accent mr-3">✓</span>
+              Cercanía en todo momento
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-off-white p-10 rounded-xl shadow-lg">
+        <h3 
+          class="text-3xl font-semibold text-deep-charcoal mb-8"
+          style="font-family: var(--font-family-playfair);"
+        >
+          Contactanos
+        </h3>
+        
+        <!-- Success Message (Hidden by default) -->
+        <div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-8">
+          <p class="font-medium text-lg">¡Gracias por tu consulta!</p>
+          <p>Te contactaremos pronto para programar tu cita.</p>
+        </div>
+
+        <!-- Error Message (Hidden by default) -->
+        <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8">
+          <p class="font-medium text-lg">Error al enviar el formulario.</p>
+          <p>Por favor, verifica tu conexión a internet e intenta nuevamente o contáctanos directamente por WhatsApp.</p>
+        </div>
+        
+        <form id="contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label 
+                class="block text-sm font-medium text-deep-charcoal mb-3"
+                style="font-family: var(--font-family-inter);"
+              >
+                Nombre *
+              </label>
+              <input 
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="Tu nombre"
+                required
+                class="w-full px-4 py-3 bg-soft-cream border border-warm-gray/30 rounded-lg focus:border-gold-accent focus:outline-none transition-colors"
+              />
+            </div>
+            <div>
+              <label 
+                class="block text-sm font-medium text-deep-charcoal mb-3"
+                style="font-family: var(--font-family-inter);"
+              >
+                Apellido *
+              </label>
+              <input 
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Tu apellido"
+                required
+                class="w-full px-4 py-3 bg-soft-cream border border-warm-gray/30 rounded-lg focus:border-gold-accent focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label 
+              class="block text-sm font-medium text-deep-charcoal mb-3"
+              style="font-family: var(--font-family-inter);"
+            >
+              Email *
+            </label>
+            <input 
+              type="email"
+              name="email"
+              id="email"
+              placeholder="hola@byrosy.solutions"
+              required
+              class="w-full px-4 py-3 bg-soft-cream border border-warm-gray/30 rounded-lg focus:border-gold-accent focus:outline-none transition-colors"
+            />
+          </div>
+          
+          <div>
+            <label 
+              class="block text-sm font-medium text-deep-charcoal mb-3"
+              style="font-family: var(--font-family-inter);"
+            >
+              Teléfono
+            </label>
+            <input 
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="8188593299"
+              class="w-full px-4 py-3 bg-soft-cream border border-warm-gray/30 rounded-lg focus:border-gold-accent focus:outline-none transition-colors"
+            />
+          </div>
+          
+          <div>
+            <label 
+              class="block text-sm font-medium text-deep-charcoal mb-3"
+              style="font-family: var(--font-family-inter);"
+            >
+              Detalles del Proyecto *
+            </label>
+            <textarea 
+              name="details"
+              id="details"
+              placeholder="Cuéntanos sobre la cocina de tus sueños..."
+              rows="5"
+              required
+              class="w-full px-4 py-3 bg-soft-cream border border-warm-gray/30 rounded-lg focus:border-gold-accent focus:outline-none transition-colors resize-none"
+            ></textarea>
+          </div>
+          
+          <button 
+            type="submit"
+            id="submit-btn"
+            class="w-full bg-gold-accent hover:bg-gold-accent/90 text-deep-charcoal font-semibold py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            style="font-family: var(--font-family-inter);"
+          >
+            <span id="btn-text">Programar Consulta</span>
+            <span id="btn-loading" class="hidden">Enviando...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Enhanced form styles */
+  input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  }
+  
+  /* Social media hover effects */
+  a[href*="wa.me"]:hover svg {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  a[href*="instagram"]:hover svg {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  a[href*="facebook"]:hover svg {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  /* Loading state */
+  .loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+</style>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnLoading = document.getElementById('btn-loading');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+
+  // Verificar EmailJS simplificado
+  if (typeof emailjs === 'undefined') {
+    console.error('EmailJS no está disponible');
+    errorMessage.classList.remove('hidden');
+    errorMessage.innerHTML = `
+      <p class="font-medium">Error en la configuración del formulario.</p>
+      <p class="text-sm">Por favor, contáctanos directamente por WhatsApp.</p>
+    `;
+    return;
+  } else {
+    console.log('EmailJS está disponible en el formulario de contacto');
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitBtn.classList.add('loading');
+    btnText.classList.add('hidden');
+    btnLoading.classList.remove('hidden');
+    
+    // Hide previous messages
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    
+    // Get form data
+    const formData = new FormData(form);
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone') || "No proporcionado",
+      details: formData.get('details'),
+      timestamp: new Date().toLocaleString('es-MX', { 
+        timeZone: 'America/Mexico_City',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    };
+    
+    try {
+      // 1. Send email using EmailJS
+      await sendEmail(data);
+      
+      // 2. Send to webhook for additional processing (if needed)
+      await sendToWebhook(data);
+      
+      // Show success message with un mensaje simplificado
+      successMessage.classList.remove('hidden');
+      successMessage.innerHTML = `
+        <p class="font-medium text-lg">Gracias por contactarons!</p>
+        <p>Te responderemos pronto!</p>
+      `;
+      form.reset();
+      
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+    } catch (error) {
+      console.error('Error:', error);
+      errorMessage.classList.remove('hidden');
+      
+      // Update error message with more details if it's from EmailJS
+      if (error.status) {
+        errorMessage.innerHTML = `
+          <p class="font-medium">Error al enviar el formulario (${error.status}).</p>
+          <p class="text-sm">${error.text || 'Por favor, intenta nuevamente o contáctanos directamente.'}</p>
+        `;
+      } else {
+        // Show more generic error info in console for debugging
+        console.log('Detalles del error:', JSON.stringify(error));
+        
+        // Determinar el tipo de error para mostrar un mensaje más útil
+        let errorMsg = 'Por favor, verifica tu conexión a internet e intenta nuevamente.';
+        
+        if (error.message && error.message.includes('EmailJS no está cargado')) {
+          errorMsg = 'Error en la configuración del formulario. Por favor, contáctanos directamente por WhatsApp.';
+        } else if (error.message && error.message.includes('publicKey')) {
+          errorMsg = 'Error en la configuración del formulario. Por favor, intenta más tarde o contáctanos por WhatsApp.';
+        }
+        
+        errorMessage.innerHTML = `
+          <p class="font-medium">Error al enviar el formulario.</p>
+          <p class="text-sm">${errorMsg}</p>
+        `;
+      }
+    } finally {
+      // Reset button state
+      submitBtn.classList.remove('loading');
+      btnText.classList.remove('hidden');
+      btnLoading.classList.add('hidden');
+    }
+  });
+
+  async function sendEmail(data) {
+    try {
+      console.log('Iniciando envío de email con EmailJS...');
+      
+      // Verificar si EmailJS está disponible
+      if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS no está cargado correctamente. Verifica la inclusión del script en index.astro');
+      }
+      
+      // Parámetros para enviar - útil para depuración
+      const templateParams = {
+        // Combinamos todos los datos en el campo de mensaje
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone || "No proporcionado",
+        // Incluimos todos los datos en el campo mensaje
+        message: `
+DATOS DEL CLIENTE:
+Nombre: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Teléfono: ${data.phone || "No proporcionado"}
+Fecha: ${data.timestamp}
+
+MENSAJE:
+${data.details}
+        `.trim(),
+        time: data.timestamp,
+        
+        // Variables estándar de EmailJS para asegurar compatibilidad
+        from_name: `${data.firstName} ${data.lastName}`,
+        from_email: data.email,
+        to_name: "Rosy",
+        reply_to: data.email,
+        subject: `Nueva consulta de cocina: ${data.firstName} ${data.lastName}`,
+        
+        // Variables adicionales explícitas para depuración
+        firstName: data.firstName,
+        lastName: data.lastName,
+        details: data.details
+      };
+      
+      console.log('Enviando con los siguientes datos:', templateParams);
+      
+      // Usar método directo para enviar email
+      return emailjs.send('service_1eal0tv', 'template_0giz0yj', templateParams);
+    } catch (error) {
+      console.error('Error enviando email:', error);
+      // Mostrar más detalles del error para ayudar en la depuración
+      console.error('Detalles del error:', {
+        mensaje: error.message || 'Error desconocido',
+        status: error.status || 'No disponible',
+        texto: error.text || 'No disponible'
+      });
+      throw error;
+    }
+  }
+
+  async function sendToWebhook(data) {
+    // If you still want to keep the webhook functionality
+    const webhookURL = 'PEGA_AQUI_TU_WEBHOOK_URL_DE_MAKE';
+    
+    // Skip if no webhook URL is configured
+    if (webhookURL === 'PEGA_AQUI_TU_WEBHOOK_URL_DE_MAKE') {
+      console.log('No webhook URL configured, skipping webhook');
+      return;
+    }
+    
+    try {
+      const response = await fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Webhook enviado exitosamente:', result);
+      return result;
+      
+    } catch (error) {
+      console.error('Error enviando webhook:', error);
+      throw error;
+    }
+  }
+});
+</script> 

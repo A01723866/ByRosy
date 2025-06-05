@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import Header from '../components/ui/Header';
-import Portfolio from '../components/sections/Portfolio';
-import Contact from '../components/sections/Contact';
+import Portfolio from '../components/sections/Portfolio.astro';
+import Contact from '../components/sections/Contact.astro';
 import ServicesSection from '../components/sections/ServicesSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import ImageBreakSection from '../components/sections/ImageBreakSection.astro';
@@ -13,7 +13,7 @@ import heroImage from '../../public/images/Welcome.jpeg';
 import heroImage2 from '../../public/images/Welcome2.jpeg';
 
 const SITE_TITLE = "ByRosy - Cocinas y Espacios";
-const SITE_DESCRIPTION = "Bespoke kitchen design and installation crafted for the discerning homeowner who values exceptional quality and timeless elegance.";
+const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
 ---
 
 <!doctype html>
@@ -22,8 +22,17 @@ const SITE_DESCRIPTION = "Bespoke kitchen design and installation crafted for th
 		<meta charset="UTF-8" />
 		<meta name="description" content={SITE_DESCRIPTION} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/R.svg" />
 		<title>{SITE_TITLE}</title>
+		
+		<!-- EmailJS carga simple y directa -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript">
+			// Inicializar EmailJS con la clave pública
+			(function() {
+				emailjs.init("bmCsAVRUy8IyOpEpc");
+			})();
+		</script>
 	</head>
 	<body>
 		<Header client:load />
@@ -121,10 +130,10 @@ const SITE_DESCRIPTION = "Bespoke kitchen design and installation crafted for th
 			</section>
 			
 			<section id="portfolio">
-				<Portfolio client:load />
+				<Portfolio />
 			</section>
 			<section id="contact">
-				<Contact client:load />
+				<Contact />
 			</section>
 		</main>
 

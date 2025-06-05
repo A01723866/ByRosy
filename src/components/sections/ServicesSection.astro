@@ -8,24 +8,29 @@ import material4Image from '../../../public/images/Material4.jpeg';
 // Define los servicios en el frontmatter de Astro
 const services = [
   {
+    icon: "personalizado",
+    title: "Conexión y Entendimiento",
+    description: "A través de una entrevista personal, descubrimos tus gustos, hábitos, inspiración y frustraciones para crear una cocina que refleje tu estilo de vida de forma auténtica."
+  },
+  {
     icon: "ruler",
     title: "Diseño a Medida",
     description: "Diseños de cocina personalizados adaptados a tu estilo de vida, espacio y preferencias estéticas. Cada detalle meticulosamente planificado."
   },
   {
-    icon: "palette",
+    icon: "quality",
     title: "Selección de Materiales",
-    description: "Selección curada de materiales premium que incluyen piedra natural, madera maciza y accesorios de diseñador de fabricantes reconocidos."
+    description: "Materiales seleccionados especialmente para ti, en armonía con tus gustos, estilo de vida y la combinación optima de lo mejor que existe en diseño y calidad."
   },
   {
-    icon: "wrench",
-    title: "Instalación Experta",
-    description: "Instalación profesional por maestros artesanos que garantiza un ajuste, acabado y funcionalidad perfectos que resisten la prueba del tiempo."
+    icon: "balanza",
+    title: "Estética que trasciende",
+    description: "Con un balance entre lo estético y funcional, creamos un espacio que une, conecta y da vida a los momentos especiales. Creando espacios que invitan a la convivencia entre familia y amigos."
   },
   {
     icon: "trophy",
-    title: "Gestión de Proyectos",
-    description: "Supervisión integral del proyecto desde el concepto hasta la finalización, garantizando entregas puntuales y estándares de calidad excepcionales."
+    title: "Cercanía en todo momento",
+    description: "En el momento en que decides iniciar tu cocina con nosotros, estamos contigo en cada paso. Atendemos cada detalle y resolvemos cualquier imprevisto con atención, calidez y compromiso, para que vivas una experiencia impecable, con el mejor servicio y el resultado que mereces."
   }
 ];
 
@@ -34,10 +39,8 @@ const getIconSvg = (iconName) => {
   switch (iconName) {
     case 'ruler':
       return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/></svg>`;
-    case 'palette':
-      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`;
-    case 'wrench':
-      return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`;
+    case 'quality':
+      return `<svg fill="currentColor" width="51" height="51" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.11,9.5c0.27,0,0.52,0.18,0.59,0.45c0.12,0.45,0.3,0.88,0.53,1.28c0.14,0.24,0.1,0.54-0.1,0.73  c-0.24,0.24-0.24,0.62,0,0.86l0.55,0.55c0.24,0.24,0.62,0.24,0.86,0c0.19-0.19,0.49-0.23,0.73-0.1c0.4,0.23,0.83,0.41,1.28,0.53  c0.26,0.07,0.45,0.31,0.45,0.59c0,0.34,0.27,0.61,0.61,0.61h0.78c0.34,0,0.61-0.27,0.61-0.61c0-0.27,0.18-0.52,0.45-0.59  c0.45-0.12,0.88-0.3,1.28-0.53c0.24-0.14,0.54-0.1,0.73,0.1c0.24,0.24,0.62,0.24,0.86,0l0.55-0.55c0.24-0.24,0.24-0.62,0-0.86  c-0.19-0.19-0.23-0.49-0.1-0.73c0.23-0.4,0.41-0.83,0.53-1.28c0.07-0.26,0.31-0.45,0.59-0.45c0.34,0,0.61-0.27,0.61-0.61V8.11  c0-0.34-0.27-0.61-0.61-0.61c-0.27,0-0.52-0.18-0.59-0.45C17.18,6.6,17,6.17,16.77,5.77c-0.14-0.24-0.1-0.54,0.1-0.73  c0.24-0.24,0.24-0.62,0-0.86l-0.55-0.55c-0.24-0.24-0.62-0.24-0.86,0c-0.19,0.19-0.49,0.23-0.73,0.1c-0.4-0.23-0.83-0.41-1.28-0.53  C13.18,3.13,13,2.88,13,2.61C13,2.27,12.73,2,12.39,2h-0.78C11.27,2,11,2.27,11,2.61c0,0.27-0.18,0.52-0.45,0.59  C10.1,3.32,9.67,3.5,9.27,3.73c-0.24,0.14-0.54,0.1-0.73-0.1c-0.24-0.24-0.62-0.24-0.86,0L7.13,4.18c-0.24,0.24-0.24,0.62,0,0.86  c0.19,0.19,0.23,0.49,0.1,0.73C7,6.17,6.82,6.6,6.7,7.05C6.63,7.32,6.38,7.5,6.11,7.5C5.77,7.5,5.5,7.77,5.5,8.11v0.78  C5.5,9.23,5.77,9.5,6.11,9.5z M8.57,7.81c0.27-1.39,1.36-2.48,2.75-2.75c2.46-0.47,4.59,1.66,4.12,4.12  c-0.27,1.39-1.36,2.48-2.75,2.75C10.22,12.4,8.1,10.28,8.57,7.81z"/><path d="M2.76,17.97l3.51,0.88l1.04,2.53c0.13,0.31,0.41,0.54,0.74,0.6c0.34,0.06,0.68-0.05,0.91-0.3L12,18.46l3.04,3.23  c0.19,0.2,0.46,0.31,0.73,0.31c0.06,0,0.12-0.01,0.18-0.02c0.33-0.06,0.61-0.29,0.74-0.6l1.04-2.53l3.51-0.88  c0.37-0.09,0.65-0.38,0.73-0.75c0.08-0.37-0.05-0.75-0.35-0.99l-2.95-2.38c-0.43-0.35-1.06-0.28-1.41,0.15  c-0.35,0.43-0.28,1.06,0.15,1.41l1.39,1.12l-2.05,0.51c-0.31,0.08-0.56,0.3-0.68,0.59l-0.65,1.57l-2.7-2.87  c-0.38-0.4-1.08-0.4-1.46,0l-2.7,2.87l-0.65-1.57c-0.12-0.29-0.37-0.51-0.68-0.59l-2.05-0.51l1.39-1.12  c0.43-0.35,0.5-0.98,0.15-1.41c-0.35-0.43-0.98-0.5-1.41-0.15l-2.95,2.38c-0.29,0.24-0.43,0.62-0.35,0.99  C2.11,17.59,2.39,17.88,2.76,17.97z"/><path d="M10.79,10.21c0.2,0.2,0.45,0.29,0.71,0.29s0.51-0.1,0.71-0.29l2-2c0.39-0.39,0.39-1.02,0-1.41s-1.02-0.39-1.41,0L11.5,8.09  l-0.29-0.29c-0.39-0.39-1.02-0.39-1.41,0s-0.39,1.02,0,1.41L10.79,10.21z"/></svg>`;
     case 'trophy':
       return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`;
     default:
@@ -46,88 +49,55 @@ const getIconSvg = (iconName) => {
 };
 ---
 
-<section class="relative py-62 bg-white overflow-hidden -mt-1" id="services-section">
-  <!-- Fotos de materiales con efecto parallax -->
-  <div class="absolute inset-0 z-15">
-    <!-- Foto 1 - Material1.jpeg (superior izquierda) -->
-    <div class="absolute top-12 left-8 w-60 h-76 opacity-30 parallax-img" data-speed="0.3">
-      <Image 
-        src={material1Image} 
-        alt="Material 1" 
-        width={3300}
-        height={5225}
-        class="w-full h-full object-cover rounded-lg"
-      />
-    </div>
-    
-    <!-- Foto 2 - Material2.jpeg (superior derecha) -->
-    <div class="absolute top-16 right-45 w-54 h-42 opacity-30 parallax-img" data-speed="0.5">
-      <Image 
-        src={material2Image} 
-        alt="Material 2" 
-        width={275}
-        height={200}
-        class="w-full h-full object-cover rounded-lg"
-      />
-    </div>
-    
-    <!-- Foto 3 - Material3.jpeg (inferior izquierda) -->
-    <div class="absolute bottom-10 left-60 w-70 h-40 opacity-30 parallax-img" data-speed="0.4">
-      <Image 
-        src={material3Image} 
-        alt="Material 3" 
-        width={250}
-        height={175}
-        class="w-full h-full object-cover rounded-lg"
-      />
-    </div>
-    
-    <!-- Foto 4 - Material4.jpeg (inferior derecha) -->
-    <div class="absolute bottom-20 right-10 w-46 h-64 opacity-30 parallax-img" data-speed="0.6">
-      <Image 
-        src={material4Image} 
-        alt="Material 4" 
-        width={290}
-        height={210}
-        class="w-full h-full object-cover rounded-lg"
-      />
-    </div>
-  </div>
-
+<section class="relative py-24 bg-white overflow-hidden z-5" id="services-section">
   <!-- Content over white background -->
-  <div class="relative z-20 max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <!-- Header Section with more spacing -->
+    <div class="text-center mb-24">
       <h2 
-        class="text-4xl md:text-5xl font-bold text-deep-charcoal mb-6" 
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-charcoal mb-8" 
         style="font-family: var(--font-family-tempting);"
       >
         Vive tu cocina
       </h2>
       <p 
-        class="text-lg text-warm-gray max-w-2xl mx-auto" 
-        style="font-family: var(--font-family-inter);"
+        class="text-xl text-warm-gray max-w-3xl mx-auto leading-relaxed" 
+        style="font-family: var(--font-family-playfair);"
       >
-        Desde el concepto inicial hasta la instalación final, brindamos servicios 
-        integrales de diseño de cocina que superan las expectativas en cada etapa.
+        Desde la primera idea hasta tu primer platillo, te acompañamos en cada paso para que tomes las mejores decisiones y así crear la cocina que siempre imaginaste.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Services Grid - Changed to single row layout with equal height cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
       {services.map((service, index) => (
-        <div class="service-window group relative">
-          <!-- Tarjeta de servicio limpia sin efecto ventana -->
-          <div class="service-card relative p-8 rounded-lg overflow-hidden bg-soft-cream hover:shadow-xl transition-all duration-300">
+        <div class="service-card group relative">
+          <!-- Tarjeta con altura uniforme y padding ajustado -->
+          <div class="relative p-6 py-10 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 border border-warm-gray/10 h-full flex flex-col min-h-[420px]">
             <!-- Contenido de la tarjeta -->
-            <div class="relative z-10">
-              <div class="mb-6 text-gold-accent group-hover:scale-110 transition-all duration-300" set:html={getIconSvg(service.icon)} />
+            <div class="text-center flex-1 flex flex-col">
+              <!-- Icono -->
+              <div class="mb-6 text-gold-accent group-hover:scale-110 transition-all duration-500 flex justify-center">
+                {service.icon === 'personalizado' ? (
+                  <img src="/icons/Persinalizado.svg" alt="Personalizado" width="58" height="58" style="filter: invert(65%) sepia(45%) saturate(688%) hue-rotate(9deg) brightness(91%) contrast(91%);" />
+                ) : service.icon === 'balanza' ? (
+                  <img src="/icons/Balanza.svg" alt="Balanza" width="58" height="58" style="filter: invert(65%) sepia(45%) saturate(688%) hue-rotate(9deg) brightness(91%) contrast(91%);" />
+                ) : (
+                  <div set:html={getIconSvg(service.icon)} />
+                )}
+              </div>
+              
+              <!-- Título -->
               <h3 
-                class="text-xl font-semibold text-deep-charcoal mb-4" 
+                class="text-lg font-semibold text-deep-charcoal mb-4 leading-tight" 
                 style="font-family: var(--font-family-playfair);"
               >
                 {service.title}
               </h3>
+              
+              <!-- Descripción con más espacio -->
               <p 
-                class="text-warm-gray leading-relaxed text-sm" 
+                class="text-warm-gray leading-relaxed text-sm flex-1" 
                 style="font-family: var(--font-family-inter);"
               >
                 {service.description}
@@ -137,52 +107,76 @@ const getIconSvg = (iconName) => {
         </div>
       ))}
     </div>
+
+    <!-- Discrete Call to Action -->
+    <div class="text-center">
+      <div class="max-w-2xl mx-auto mb-8">
+      </div>
+      
+      <a 
+        href="#contact"
+        class="inline-flex items-center text-deep-charcoal hover:text-gold-accent transition-colors duration-300 group"
+        style="font-family: var(--font-family-playfair);"
+      >
+        <span class="text-lg font-medium border-b border-transparent group-hover:border-gold-accent transition-colors duration-300">
+          Conversemos sobre tu proyecto
+        </span>
+        <svg class="ml-3 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
-  .service-window {
-    position: relative;
-  }
-  
   .service-card {
     position: relative;
-    isolation: isolate;
+    z-index: 1;
   }
   
-  .parallax-img {
-    will-change: transform;
+  .service-card:hover {
+    transform: translateY(-4px);
+    z-index: 2;
+  }
+  
+  #services-section {
+    position: relative;
+    z-index: 5;
+  }
+  
+  /* Smooth hover transitions */
+  .service-card .relative {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 1024px) {
+    .service-card .relative {
+      min-height: 350px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .service-card .relative {
+      min-height: auto;
+    }
   }
 </style>
 
 <script>
+  // Enhanced hover effects
   document.addEventListener('DOMContentLoaded', () => {
-    const servicesSection = document.getElementById('services-section');
-    const parallaxImages = document.querySelectorAll('.parallax-img');
+    const serviceCards = document.querySelectorAll('.service-card');
     
-    const handleScroll = () => {
-      if (!servicesSection) return;
+    serviceCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+      });
       
-      const rect = servicesSection.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calcular si la sección está visible
-      if (rect.bottom >= 0 && rect.top <= windowHeight) {
-        // Calcular el porcentaje de scroll dentro de la sección
-        const scrollProgress = Math.max(0, Math.min(1, 
-          (windowHeight - rect.top) / (windowHeight + rect.height)
-        ));
-        
-        // Aplicar el efecto parallax a cada imagen
-        parallaxImages.forEach((img) => {
-          const speed = parseFloat(img.getAttribute('data-speed') || '0.3');
-          const offset = scrollProgress * 20 * speed; // Movimiento sutil
-          img.style.transform = `translateY(${offset}px)`;
-        });
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Ejecutar una vez al cargar
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
   });
 </script> 

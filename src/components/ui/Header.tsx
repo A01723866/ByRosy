@@ -81,7 +81,7 @@ const ByRosyHeader = () => {
                 }`}
                 style={{fontFamily: 'var(--font-family-inter)'}}
               >
-                Contact
+                Contacto
               </a>
             </li>
           </ul>

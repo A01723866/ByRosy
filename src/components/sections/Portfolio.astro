@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets';
+
+// Import project images
+import projecto1 from '../../../public/images/projecto_1.jpeg';
+import projecto2 from '../../../public/images/projecto_2.jpeg';
+import projecto3 from '../../../public/images/projecto_3.jpeg';
+import projecto4 from '../../../public/images/projecto_4.jpeg';
+import projecto5 from '../../../public/images/projecto_5.jpeg';
+import projecto6 from '../../../public/images/projecto_6.jpeg';
+
+const projects = [
+  {
+    title: "Cocina Contemporánea",
+    description: "Elegancia moderna con acabados de lujo",
+    image: projecto1
+  },
+  {
+    title: "Diseño Minimalista", 
+    description: "Líneas limpias, funcionalidad máxima",
+    image: projecto2
+  },
+  {
+    title: "Lujo Tradicional",
+    description: "Tradición artesanal con toques modernos", 
+    image: projecto3
+  },
+  {
+    title: "Estilo Clásico",
+    description: "Diseño atemporal con carácter único",
+    image: projecto4
+  },
+  {
+    title: "Cocina Gourmet",
+    description: "Espacio diseñado para la alta gastronomía",
+    image: projecto5
+  },
+  {
+    title: "Elegancia Refinada",
+    description: "Sofisticación en cada detalle",
+    image: projecto6
+  }
+];
+---
+
+<section id="portfolio" class="relative py-24 bg-soft-cream z-10">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-24">
+      <h2 
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-charcoal mb-8"
+        style="font-family: var(--font-family-tempting);"
+      >
+        Proyectos Destacados
+      </h2>
+      <p 
+        class="text-xl text-warm-gray max-w-3xl mx-auto leading-relaxed"
+        style="font-family: var(--font-family-playfair);"
+      >
+        Cada cocina cuenta una historia única. Descubre nuestro portafolio de diseños 
+        exclusivos que reflejan nuestro compromiso con la excelencia y la innovación.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {projects.map((project, index) => (
+        <div 
+          class="portfolio-card group cursor-pointer overflow-hidden rounded-xl shadow-xl hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+        >
+          <div class="relative overflow-hidden aspect-[4/5]">
+            <Image 
+              src={project.image} 
+              alt={project.title}
+              width={800}
+              height={1000}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal/80 via-deep-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          
+          <!-- Card footer - visible always -->
+          <div class="p-8 bg-white border-t-2 border-gold-accent">
+            <h3 
+              class="text-xl font-semibold text-deep-charcoal mb-3 project-title"
+              style="font-family: var(--font-family-playfair);"
+            >
+              {project.title}
+            </h3>
+            <p 
+              class="text-warm-gray text-sm leading-relaxed"
+              style="font-family: var(--font-family-inter);"
+            >
+              {project.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio-card {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .portfolio-card:hover {
+    z-index: 10;
+  }
+  
+  /* Ensure proper stacking context */
+  #portfolio {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Fix for uppercase D rendering */
+  .title-display {
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.02em;
+  }
+  
+  .project-title {
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
+  }
+</style> 
