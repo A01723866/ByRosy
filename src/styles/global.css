@@ -49,6 +49,11 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+/* Main content container to position sections properly */
+main {
+  position: relative;
+}
+
 @media (max-width: 640px) {
   .parallax-section {
     height: 100vh; /* Ensure full height on mobile */
@@ -270,4 +275,140 @@ h1, h2, h3, h4, h5, h6 {
   50% {
     transform: translateY(-10px) translateX(-50%);
   }
+}
+
+/* Section Navigation Buttons */
+.section-nav-button {
+  position: relative;
+  width: 180px;
+  height: 80px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .section-nav-button {
+    width: 160px;
+    height: 70px;
+  }
+}
+
+.section-nav-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, var(--color-gold-accent), transparent, var(--color-gold-accent));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-nav-button.active::before {
+  opacity: 1;
+}
+
+.section-nav-button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.section-nav-button.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: var(--color-gold-accent);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.3);
+}
+
+.section-nav-button .btn-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2px;
+  font-family: var(--font-family-playfair);
+}
+
+.section-nav-button .btn-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-family-inter);
+}
+
+@media (max-width: 640px) {
+  .section-nav-button .btn-text {
+    font-size: 1rem;
+  }
+  .section-nav-button .btn-subtitle {
+    font-size: 0.75rem;
+  }
+}
+
+/* Section Groups */
+.section-group {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.section-group.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Leaflet Map Custom Styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+  line-height: 1.4;
+}
+
+.leaflet-popup-tip {
+  background-color: white;
+}
+
+.leaflet-control-attribution {
+  font-size: 11px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.leaflet-marker-icon {
+  filter: hue-rotate(25deg) saturate(1.2);
 }

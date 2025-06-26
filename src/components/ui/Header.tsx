@@ -5,6 +5,7 @@ const ByRosyHeader = () => {
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('byrosy');
   
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +19,31 @@ const ByRosyHeader = () => {
       
       setPrevScrollPos(currentScrollPos);
     };
+
+    // Listen for section changes
+    const handleSectionChange = () => {
+      const byrosySections = document.getElementById('byrosy-sections');
+      const realestateSections = document.getElementById('realestate-sections');
+      
+      if (byrosySections && byrosySections.classList.contains('active')) {
+        setActiveSection('byrosy');
+      } else if (realestateSections && realestateSections.classList.contains('active')) {
+        setActiveSection('realestate');
+      }
+    };
+
+    // Initial check
+    handleSectionChange();
     
     window.addEventListener('scroll', handleScroll);
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Check for section changes periodically
+    const interval = setInterval(handleSectionChange, 500);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearInterval(interval);
+    };
   }, [prevScrollPos]);
 
   const toggleMenu = () => {
@@ -31,6 +53,32 @@ const ByRosyHeader = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    closeMenu();
+  };
+
+  const byrosyNavItems = [
+    { href: '#about', label: 'About Rosy' },
+    { href: '#services', label: 'Servicios' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#contact', label: 'Contacto' }
+  ];
+
+  const realestateNavItems = [
+    { href: '#realestate-about', label: 'Inicio' },
+    { href: '#realestate-services', label: 'Servicios' },
+    { href: '#contact', label: 'Contacto' }
+  ];
+
+  const currentNavItems = activeSection === 'byrosy' ? byrosyNavItems : realestateNavItems;
   
   return (
     <header 
@@ -39,13 +87,13 @@ const ByRosyHeader = () => {
       } ${atTop ? 'py-4 md:py-6 bg-transparent' : 'py-3 md:py-4 bg-white/90 shadow-sm backdrop-blur-sm'}`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        <a 
-          href="/" 
-          className={`text-xl md:text-2xl font-bold transition-colors ${atTop ? 'text-white' : 'text-deep-charcoal'}`}
+        <button
+          onClick={scrollToHero}
+          className={`text-xl md:text-2xl font-bold transition-colors ${atTop ? 'text-white' : 'text-deep-charcoal'} hover:opacity-80`}
           style={{fontFamily: 'var(--font-family-playfair)'}}
         >
-          ByRosy
-        </a>
+          {activeSection === 'byrosy' ? 'ByRosy' : 'Real Estate'}
+        </button>
         
         {/* Hamburger button for mobile */}
         <button 
@@ -70,50 +118,20 @@ const ByRosyHeader = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-            <li>
-              <a 
-                href="#about" 
-                className={`text-sm tracking-wide hover:opacity-80 transition-opacity ${
-                  atTop ? 'text-white' : 'text-deep-charcoal'
-                }`}
-                style={{fontFamily: 'var(--font-family-inter)'}}
-              >
-                About Rosy
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#services" 
-                className={`text-sm tracking-wide hover:opacity-80 transition-opacity ${
-                  atTop ? 'text-white' : 'text-deep-charcoal'
-                }`}
-                style={{fontFamily: 'var(--font-family-inter)'}}
-              >
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#portfolio" 
-                className={`text-sm tracking-wide hover:opacity-80 transition-opacity ${
-                  atTop ? 'text-white' : 'text-deep-charcoal'
-                }`}
-                style={{fontFamily: 'var(--font-family-inter)'}}
-              >
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#contact" 
-                className={`text-sm tracking-wide hover:opacity-80 transition-opacity ${
-                  atTop ? 'text-white' : 'text-deep-charcoal'
-                }`}
-                style={{fontFamily: 'var(--font-family-inter)'}}
-              >
-                Contacto
-              </a>
-            </li>
+            {currentNavItems.map((item, index) => (
+              <li key={index}>
+                <a 
+                  href={item.href}
+                  className={`text-sm tracking-wide hover:opacity-80 transition-opacity ${
+                    atTop ? 'text-white' : 'text-deep-charcoal'
+                  }`}
+                  style={{fontFamily: 'var(--font-family-inter)'}}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -121,46 +139,18 @@ const ByRosyHeader = () => {
         <div className={`fixed inset-0 bg-black/90 z-40 flex items-center justify-center transition-all duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           <nav>
             <ul className="flex flex-col space-y-8 text-center">
-              <li>
-                <a 
-                  href="#about" 
-                  className="text-xl text-white hover:text-gold-accent transition-colors"
-                  style={{fontFamily: 'var(--font-family-playfair)'}}
-                  onClick={closeMenu}
-                >
-                  About Rosy
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#services" 
-                  className="text-xl text-white hover:text-gold-accent transition-colors"
-                  style={{fontFamily: 'var(--font-family-playfair)'}}
-                  onClick={closeMenu}
-                >
-                  Servicios
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#portfolio" 
-                  className="text-xl text-white hover:text-gold-accent transition-colors"
-                  style={{fontFamily: 'var(--font-family-playfair)'}}
-                  onClick={closeMenu}
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-xl text-white hover:text-gold-accent transition-colors"
-                  style={{fontFamily: 'var(--font-family-playfair)'}}
-                  onClick={closeMenu}
-                >
-                  Contacto
-                </a>
-              </li>
+              {currentNavItems.map((item, index) => (
+                <li key={index}>
+                  <a 
+                    href={item.href}
+                    className="text-xl text-white hover:text-gold-accent transition-colors"
+                    style={{fontFamily: 'var(--font-family-playfair)'}}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

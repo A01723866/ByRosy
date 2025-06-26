@@ -6,14 +6,18 @@ import Contact from '../components/sections/Contact.astro';
 import ServicesSection from '../components/sections/ServicesSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import ImageBreakSection from '../components/sections/ImageBreakSection.astro';
+import RealEstateHero from '../components/sections/RealEstateHero.astro';
+import RealEstateAboutMe from '../components/sections/RealEstateAboutMe.astro';
+import RealEstateServices from '../components/sections/RealEstateServices.astro';
+import RealEstateCTA from '../components/sections/RealEstateCTA.astro';
+import RealEstateLocationMap from '../components/sections/RealEstateLocationMap';
 import '../styles/global.css';
 
 // Import the hero images
 import heroImage from '../../public/images/Welcome.jpeg';
-import heroImage2 from '../../public/images/Welcome2.jpeg';
 
-const SITE_TITLE = "ByRosy - Cocinas y Espacios";
-const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
+const SITE_TITLE = "Rosy Santisteban - Cocinas y Bienes Raíces";
+const SITE_DESCRIPTION = "Cocinas de Lujo y Bienes Raíces por Rosy Santisteban";
 ---
 
 <!doctype html>
@@ -24,6 +28,9 @@ const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<link rel="icon" type="image/svg+xml" href="/R.svg" />
 		<title>{SITE_TITLE}</title>
+		
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		
 		<!-- EmailJS carga simple y directa -->
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -37,22 +44,11 @@ const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
 	<body>
 		<Header client:load />
 		<main>
-			<!-- Fixed background images with transition -->
-			<div id="bg-image-1" class="bg-image" style="opacity: 1;">
+			<!-- Fixed background image -->
+			<div id="bg-image" class="bg-image">
 				<Image 
 					src={heroImage} 
-					alt="Luxury kitchen background" 
-					width={2000}
-					height={1300}
-					class="w-full h-full object-cover"
-				/>
-				<div class="absolute inset-0 bg-black/30"></div>
-			</div>
-			
-			<div id="bg-image-2" class="bg-image" style="opacity: 0;">
-				<Image 
-					src={heroImage2} 
-					alt="Second luxury kitchen background" 
+					alt="Luxury background" 
 					width={2000}
 					height={1300}
 					class="w-full h-full object-cover"
@@ -60,78 +56,80 @@ const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
 				<div class="absolute inset-0 bg-black/40"></div>
 			</div>
 
-			<!-- First section -->
-			<section id="first-section" class="parallax-section flex items-center justify-center">
+			<!-- Main Hero Section -->
+			<section id="hero-section" class="parallax-section flex items-center justify-center">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
 					<div class="max-w-4xl mx-auto content-wrapper active" style="margin-top: -2rem;">
 						<h1 
-							class="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 sm:mb-6 leading-tight tracking-wider font-extralight"
+							class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-white mb-8 sm:mb-12 leading-tight tracking-wider font-extralight"
 							style="font-family: var(--font-family-tempting);"
 						>
-							By Rosy
+							Rosy Santisteban
 						</h1>
 						<p 
-							class="text-lg md:text-xl text-white/90 mb-10 sm:mb-16 max-w-xl mx-auto leading-relaxed font-light italic"
+							class="text-lg md:text-xl text-white/90 mb-12 sm:mb-16 max-w-2xl mx-auto leading-relaxed font-light"
 							style="font-family: var(--font-family-playfair);"
 						>
+							Creando espacios excepcionales y oportunidades únicas
 						</p>
-					</div>
-					
-					<a 
-						href="#second-section" 
-						class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-white transition-colors animate-bounce"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="m6 9 6 6 6-6"/>
-						</svg>
-					</a>
-				</div>
-			</section>
-
-			<!-- Second Section -->
-			<section id="second-section" class="parallax-section flex items-center justify-center">
-				<div class="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
-					<div class="max-w-4xl mx-auto content-wrapper" style="margin-top: -2rem;">
-						<h2 
-							class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 sm:mb-6 leading-tight"
-							style="font-family: var(--font-family-tempting);"
-						>
-							Diseños exclusivos
-						</h2>
-						<p 
-							class="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-10 max-w-2xl mx-auto"
-							style="font-family: var(--font-family-playfair);"
-						>
-							Creados by Rosy Santisteban, la mente experta detrás de los espacios culinarios más refinados de México.
-						</p>
-						<div class="flex justify-center">
-							<a 
-								href="#contact" 
-								class="contact-button"
+						
+						<!-- Section Navigation Buttons -->
+						<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+							<button 
+								id="byrosy-btn"
+								class="section-nav-button active"
 							>
-								<span class="btn-text flex flex-col items-center">
-									Contactame Ahora
-								</span>
-							</a>
+								<span class="btn-text">ByRosy</span>
+								<span class="btn-subtitle">Cocinas de Lujo</span>
+							</button>
+							
+							<button 
+								id="realestate-btn"
+								class="section-nav-button"
+							>
+								<span class="btn-text">Real Estate</span>
+								<span class="btn-subtitle">Bienes Raíces</span>
+							</button>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- About section -->
-			<AboutSection />
+			<!-- ByRosy Sections (initially visible) -->
+			<div id="byrosy-sections" class="section-group active">
+				<!-- About section -->
+				<AboutSection />
 
-			<!-- Image break section (Welcome3) -->
-			<ImageBreakSection />
+				<!-- Image break section (Welcome3) -->
+				<ImageBreakSection />
 
-			<!-- Services section -->
-			<section id="services">
-				<ServicesSection />
-			</section>
+				<!-- Services section -->
+				<section id="services">
+					<ServicesSection />
+				</section>
+				
+				<section id="portfolio">
+					<Portfolio />
+				</section>
+			</div>
+
+			<!-- Real Estate Sections (initially hidden) -->
+			<div id="realestate-sections" class="section-group">
+				<!-- Real Estate Hero Section -->
+				<RealEstateHero />
+				
+				<!-- About Me as Real Estate Advisor -->
+				<RealEstateAboutMe />
+				
+				<!-- Real Estate Services -->
+				<RealEstateServices />
+				
+				<!-- Real Estate Location Map -->
+				    <RealEstateLocationMap client:only="react" />
+				
+			</div>
 			
-			<section id="portfolio">
-				<Portfolio />
-			</section>
+			<!-- Shared Contact Section - Always visible regardless of active section -->
 			<section id="contact">
 				<Contact />
 			</section>
@@ -139,43 +137,60 @@ const SITE_DESCRIPTION = "Cocinas y Espacios por Rosy Santisteban";
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
-				const bgImage1 = document.getElementById('bg-image-1');
-				const bgImage2 = document.getElementById('bg-image-2');
-				const secondSection = document.getElementById('second-section');
-				const contentWrapper = document.querySelector('#second-section .content-wrapper');
-				const contactButton = document.querySelector('.contact-button');
+				const byrosyBtn = document.getElementById('byrosy-btn');
+				const realestateBtn = document.getElementById('realestate-btn');
+				const byrosySections = document.getElementById('byrosy-sections');
+				const realestateSections = document.getElementById('realestate-sections');
+				const heroSection = document.getElementById('hero-section');
 				
-				const handleScroll = () => {
-					const scrollPosition = window.scrollY;
-					const windowHeight = window.innerHeight;
+				// Section switching functionality
+				function switchToSection(
+					activeBtn: HTMLElement | null, 
+					inactiveBtn: HTMLElement | null, 
+					showSections: HTMLElement | null, 
+					hideSections: HTMLElement | null
+				) {
+					// Update button states
+					activeBtn?.classList.add('active');
+					inactiveBtn?.classList.remove('active');
 					
-					// Calculate how far down the page we've scrolled
-					const scrollPercentage = Math.min(scrollPosition / windowHeight, 1);
+					// Update section visibility
+					showSections?.classList.add('active');
+					hideSections?.classList.remove('active');
 					
-					// Fade between images based on scroll position
-					if (bgImage1 && bgImage2) {
-						bgImage1.style.opacity = 1 - scrollPercentage;
-						bgImage2.style.opacity = scrollPercentage;
+					// First scroll back to the hero section to ensure we're at the top
+					if (heroSection) {
+						window.scrollTo({
+							top: heroSection.offsetHeight - 50, // Just below the hero
+							behavior: 'smooth' // Immediate scroll
+						});
 					}
 					
-					// Check if second section is in view
-					if (secondSection) {
-						const sectionTop = secondSection.getBoundingClientRect().top;
-						if (sectionTop < windowHeight * 0.75) {
-							contentWrapper?.classList.add('active');
-							contactButton?.classList.add('active');
-						} else {
-							contentWrapper?.classList.remove('active');
-							contactButton?.classList.remove('active');
+					// Then after a brief delay, scroll to the target section
+					setTimeout(() => {
+						// For ByRosy, scroll to the about section
+						// For Real Estate, scroll to the realestate-about section
+						const targetId = showSections?.id === 'byrosy-sections' ? 'about' : 'realestate-about';
+						const targetSection = document.getElementById(targetId);
+						
+						if (targetSection) {
+							// Scroll to the beginning of the section with a small offset
+							window.scrollTo({
+								top: targetSection.offsetTop - 80, // Account for header height
+								behavior: 'smooth'
+							});
 						}
-					}
-				};
+					}, 50); // Reduced timeout for faster response
+				}
 				
-				// Run on initial load
-				handleScroll();
+				// Event listeners for section buttons
+				byrosyBtn?.addEventListener('click', () => {
+					switchToSection(byrosyBtn, realestateBtn, byrosySections, realestateSections);
+				});
 				
-				// Listen for scroll events
-				window.addEventListener('scroll', handleScroll);
+				realestateBtn?.addEventListener('click', () => {
+					switchToSection(realestateBtn, byrosyBtn, realestateSections, byrosySections);
+				});
 			});
 		</script>
 	</body>
