@@ -1,22 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 import Header from '../components/ui/Header';
-import Portfolio from '../components/sections/Portfolio.astro';
 import Contact from '../components/sections/Contact.astro';
-import ServicesSection from '../components/sections/ServicesSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
+import ServicesSection from '../components/sections/ServicesSection.astro';
+import Portfolio from '../components/sections/Portfolio.astro';
 import '../styles/global.css';
 
 // Import the hero images
 import heroImage from '../../public/images/Welcome.jpeg';
 
-const SITE_TITLE = "Rosy Santisteban | Cocinas de Lujo San Pedro & Bienes Raíces | ByRosy & Gonzales Concreta";
-const SITE_DESCRIPTION = "Especialista en cocinas de lujo, cocinas integrales, venta de casas y renta de departamentos en San Pedro Garza García. Más de 30 años de experiencia en diseño de cocinas y bienes raíces.";
-const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocinas fresas, cocinas vip, cocinas en sanpedro, electrodomesticos para cocinas, electrodomesticos, compra de casas, compra de departamentos, renta de casas, renta de departamentos, venta de casas, venta de departamentos, compra de casa, compra de departamento, renta de casa, renta de departamento, venta de casa, venta de departamento, venta de inmobiliaria, renta de inmobiliaria, casas san pedro, departamentos san pedro, bienes raices monterrey, propiedades san pedro garza garcia";
+const SITE_TITLE = "ByRosy - Cocinas de Lujo en San Pedro | Cocinas Integrales VIP";
+const SITE_DESCRIPTION = "Especialista en cocinas de lujo, cocinas integrales y electrodomésticos para cocinas en San Pedro Garza García. Más de 30 años creando espacios únicos y personalizados.";
+const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocinas fresas, cocinas vip, cocinas en sanpedro, electrodomesticos para cocinas, electrodomesticos, diseño de cocinas, cocinas personalizadas, cocinas modernas, cocinas premium, cocinas exclusivas";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={SITE_DESCRIPTION} />
@@ -27,28 +27,27 @@ const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocina
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://byrosy.com" />
+		<meta property="og:url" content="https://byrosy.com/cocinas-de-lujo" />
 		<meta property="og:title" content={SITE_TITLE} />
 		<meta property="og:description" content={SITE_DESCRIPTION} />
 		<meta property="og:image" content="/images/Welcome.jpeg" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://byrosy.com" />
+		<meta property="twitter:url" content="https://byrosy.com/cocinas-de-lujo" />
 		<meta property="twitter:title" content={SITE_TITLE} />
 		<meta property="twitter:description" content={SITE_DESCRIPTION} />
 		<meta property="twitter:image" content="/images/Welcome.jpeg" />
 		
-		<!-- Organization Schema -->
+		<!-- Local Business Schema -->
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Rosy Santisteban",
-			"description": "Especialista en cocinas de lujo y bienes raíces en San Pedro Garza García",
-			"url": "https://byrosy.com",
-			"logo": "/R.svg",
-			"sameAs": [],
+			"@type": "LocalBusiness",
+			"name": "ByRosy - Cocinas de Lujo",
+			"description": "Especialista en cocinas de lujo, cocinas integrales y electrodomésticos para cocinas en San Pedro Garza García",
+			"url": "https://byrosy.com/cocinas-de-lujo",
+			"telephone": "+52-81-xxxx-xxxx",
 			"address": {
 				"@type": "PostalAddress",
 				"addressLocality": "San Pedro Garza García",
@@ -56,33 +55,9 @@ const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocina
 				"addressCountry": "México"
 			},
 			"areaServed": "San Pedro Garza García, Monterrey, Área Metropolitana",
-			"hasOfferCatalog": {
-				"@type": "OfferCatalog",
-				"name": "Servicios",
-				"itemListElement": [
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Cocinas de Lujo",
-							"description": "Diseño y construcción de cocinas integrales de lujo"
-						}
-					},
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "Bienes Raíces",
-							"description": "Compra, venta y renta de propiedades"
-						}
-					}
-				]
-			}
+			"serviceType": ["Cocinas de Lujo", "Cocinas Integrales", "Diseño de Cocinas", "Electrodomésticos"]
 		}
 		</script>
-		
-		<!-- Leaflet CSS -->
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		
 		<!-- EmailJS carga simple y directa -->
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -100,7 +75,7 @@ const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocina
 			<div id="bg-image" class="bg-image">
 				<Image 
 					src={heroImage} 
-					alt="Luxury background" 
+					alt="Cocinas de lujo por Rosy Santisteban" 
 					width={2000}
 					height={1300}
 					class="w-full h-full object-cover"
@@ -113,41 +88,39 @@ const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocina
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
 					<div class="max-w-4xl mx-auto content-wrapper active" style="margin-top: 1rem;">
 						<h1 
-							class="text-4xl sm:text-4xl md:text-6xl lg:text-8xl text-white mb-4 sm:mb-6 leading-tight tracking-wider font-extralight"
+							class="text-4xl sm:text-4xl md:text-6xl lg:text-7xl text-white mb-4 sm:mb-6 leading-tight tracking-wider font-extralight"
 							style="font-family: var(--font-family-tempting);"
 						>
-							Rosy Santisteban
+							ByRosy
 						</h1>
-						<p 
-							class="text-lg md:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed font-light"
+						<h2 
+							class="text-2xl md:text-3xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed font-light"
 							style="font-family: var(--font-family-playfair);"
 						>
-							Creando espacios excepcionales y oportunidades únicas
+							Cocinas de Lujo en San Pedro
+						</h2>
+						<p 
+							class="text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+							style="font-family: var(--font-family-inter);"
+						>
+                            Especialista diseñando cocinas integrales de lujo y espacios unicos con los mejores acabados, en materiales, cubiertas y electrodomésticos.
 						</p>
 						
-						<!-- Section Navigation Buttons -->
+						<!-- Navigation to other section -->
 						<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-							<a 
-								href="/cocinas-de-lujo"
-								class="section-nav-button active"
-							>
-								<span class="btn-text">ByRosy</span>
-								<span class="btn-subtitle">Cocinas de Lujo en San Pedro</span>
-							</a>
-							
 							<a 
 								href="/casas-sanpedro"
 								class="section-nav-button"
 							>
 								<span class="btn-text">Gonzales Concreta</span>
-								<span class="btn-subtitle">Casas y Departamentos San Pedro</span>
+								<span class="btn-subtitle">Bienes Raíces</span>
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- ByRosy Sections (initially visible) -->
+			<!-- ByRosy Sections -->
 			<div id="byrosy-sections" class="section-group active">
 				<!-- About section -->
 				<AboutSection />
@@ -162,12 +135,10 @@ const KEYWORDS = "cocinas san pedro, cocinas integrales, cocinas de lujo, cocina
 				</section>
 			</div>
 			
-			<!-- Shared Contact Section - Always visible regardless of active section -->
+			<!-- Contact Section -->
 			<section id="contact">
 				<Contact />
 			</section>
 		</main>
-
-
 	</body>
-</html>
+</html> 

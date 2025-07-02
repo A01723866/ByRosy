@@ -1,0 +1,141 @@
+---
+import { Image } from 'astro:assets';
+import Header from '../components/ui/Header';
+import Contact from '../components/sections/Contact.astro';
+import RealEstateHero from '../components/sections/RealEstateHero.astro';
+import RealEstateAboutMe from '../components/sections/RealEstateAboutMe.astro';
+import '../styles/global.css';
+
+// Import the hero images
+import heroImage from '../../public/images/Welcome.jpeg';
+
+const SITE_TITLE = "Gonzales Concreta - Casas en San Pedro | Compra, Venta y Renta de Propiedades";
+const SITE_DESCRIPTION = "Especialista en compra, venta y renta de casas y departamentos en San Pedro Garza García. Bienes raíces con más de 30 años de experiencia en el área metropolitana de Monterrey.";
+const KEYWORDS = "compra de casas, compra de departamentos, renta de casas, renta de departamentos, venta de casas, venta de departamentos, compra de casa, compra de departamento, renta de casa, renta de departamento, venta de casa, venta de departamento, venta de inmobiliaria, renta de inmobiliaria, casas san pedro, departamentos san pedro, bienes raices monterrey, propiedades san pedro garza garcia";
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={SITE_DESCRIPTION} />
+		<meta name="keywords" content={KEYWORDS} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<link rel="icon" type="image/svg+xml" href="/R.svg" />
+		<title>{SITE_TITLE}</title>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://byrosy.com/casas-sanpedro" />
+		<meta property="og:title" content={SITE_TITLE} />
+		<meta property="og:description" content={SITE_DESCRIPTION} />
+		<meta property="og:image" content="/images/WelcomeRS.jpeg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://byrosy.com/casas-sanpedro" />
+		<meta property="twitter:title" content={SITE_TITLE} />
+		<meta property="twitter:description" content={SITE_DESCRIPTION} />
+		<meta property="twitter:image" content="/images/WelcomeRS.jpeg" />
+		
+		<!-- Real Estate Business Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "RealEstateAgent",
+			"name": "Rosy Santisteban - Gonzales Concreta",
+			"description": "Especialista en compra, venta y renta de casas y departamentos en San Pedro Garza García",
+			"url": "https://byrosy.com/casas-sanpedro",
+			"telephone": "+52-81-xxxx-xxxx",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "San Pedro Garza García",
+				"addressRegion": "Nuevo León",
+				"addressCountry": "México"
+			},
+			"areaServed": "San Pedro Garza García, Monterrey, Área Metropolitana",
+			"serviceType": ["Compra de Casas", "Venta de Casas", "Renta de Casas", "Compra de Departamentos", "Venta de Departamentos", "Renta de Departamentos", "Asesoría Inmobiliaria"],
+			"knowsAbout": ["Bienes Raíces", "Propiedades de Lujo", "Inversión Inmobiliaria", "San Pedro Garza García"]
+		}
+		</script>
+		
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+		
+		<!-- EmailJS carga simple y directa -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript">
+			// Inicializar EmailJS con la clave pública
+			(function() {
+				emailjs.init("bmCsAVRUy8IyOpEpc");
+			})();
+		</script>
+	</head>
+	<body>
+		<Header client:load />
+		<main>
+			<!-- Fixed background image -->
+			<div id="bg-image" class="bg-image">
+				<Image 
+					src={heroImage} 
+					alt="Casas y departamentos en San Pedro Garza García" 
+					width={2000}
+					height={1300}
+					class="w-full h-full object-cover"
+				/>
+				<div class="absolute inset-0 bg-black/40"></div>
+			</div>
+
+			<!-- Main Hero Section -->
+			<section id="hero-section" class="parallax-section flex items-center justify-center pt-24 md:pt-32">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
+					<div class="max-w-4xl mx-auto content-wrapper active" style="margin-top: 2rem;">
+						<h1 
+							class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white mb-2 sm:mb-4 leading-tight tracking-wider font-extralight"
+							style="font-family: var(--font-family-tempting);"
+						>
+							Gonzales Concreta
+						</h1>
+						<h2 
+							class="text-xl md:text-3xl text-white/90 mb-3 sm:mb-6 max-w-2xl mx-auto leading-relaxed font-light"
+							style="font-family: var(--font-family-playfair);"
+						>
+							Casas y Departamentos en San Pedro
+						</h2>
+						<p 
+							class="text-base md:text-xl text-white/80 mb-5 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-light"
+							style="font-family: var(--font-family-inter);"
+						>
+							Especialista en compra, venta, renta de casas y departamentos en San Pedro Garza García. Más de 30 años de experiencia en bienes raíces en el área metropolitana de Monterrey.
+						</p>
+						
+						<!-- Navigation to other section -->
+						<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+							<a 
+								href="/cocinas-de-lujo"
+								class="section-nav-button"
+							>
+								<span class="btn-text">ByRosy</span>
+								<span class="btn-subtitle">Cocinas de Lujo</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Real Estate Sections -->
+			<div id="realestate-sections" class="section-group active">
+				<!-- Real Estate Hero Section -->
+				<RealEstateHero />
+				
+				<!-- About Me as Real Estate Advisor -->
+				<RealEstateAboutMe />
+			</div>
+			
+			<!-- Contact Section -->
+			<section id="contact">
+				<Contact />
+			</section>
+		</main>
+	</body>
+</html> 

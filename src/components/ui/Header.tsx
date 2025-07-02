@@ -74,7 +74,7 @@ const ByRosyHeader = () => {
 
   const realestateNavItems = [
     { href: '#realestate-about', label: 'Inicio' },
-    { href: '#realestate-services', label: 'Servicios' },
+    { href: '#realestate-aboutme', label: 'Servicios' },
     { href: '#contact', label: 'Contacto' }
   ];
 

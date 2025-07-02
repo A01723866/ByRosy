@@ -56,9 +56,9 @@ main {
 
 @media (max-width: 640px) {
   .parallax-section {
-    height: 100vh; /* Ensure full height on mobile */
-    min-height: 500px;
-    padding-top: 80px; /* Add space for the fixed header */
+    height: auto; /* Cambiar de 100vh a auto para evitar cortes */
+    min-height: 100vh;
+    padding-top: 60px; /* Reducir el padding superior */
     padding-bottom: 40px; /* Add bottom space */
   }
   
@@ -70,6 +70,22 @@ main {
   
   .contact-button {
     margin-bottom: 50px; /* Add more space for the button on mobile */
+  }
+  
+  /* Asegurar que el contenido tenga suficiente espacio en móvil */
+  #hero-section {
+    min-height: 100vh;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  /* Ajustar el espaciado para el contenido del hero */
+  #hero-section .content-wrapper {
+    padding-top: 2rem;
   }
 }
 
@@ -386,8 +402,6 @@ main {
   margin: 0;
   padding: 0;
 }
-
-
 
 /* Leaflet Map Custom Styles */
 .leaflet-popup-content-wrapper {
